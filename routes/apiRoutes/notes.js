@@ -1,6 +1,6 @@
 
 const router = require('express').Router();
-const { createNote } = require('../../lib/createNotes');
+const { newNote } = require('../../lib/createNotes');
 const { notes } = require('../../db/db.json');
 
 
@@ -20,7 +20,7 @@ router.post('/notes', (req, res) => {
     } 
     
     else {
-        const newNote = createNote(req.body, notes);
+        const additionalNote = newNote(req.body, notes);
         res.json(req.body);
     }
 });
