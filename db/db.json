@@ -3,12 +3,17 @@
     {
         "title":"This is a title.",
         "text":"Interesting text",
-        "id": "identification22"
+        "id": "0"
     },
     {
         "title":"This is a title also.",
+        "text":"Interesting text also",
+        "id": "1"
+    },
+    {
+        "title":"This is a title as well.",
         "text":"Interesting text as well",
-        "id": "ident22"
+        "id": "2"
     }
 ]
 }
