@@ -2,30 +2,23 @@
 const path = require('path');
 const router = require('express').Router();
 
-
-
+//html routes so html functionality appears
 router.get('/', (req, res) => {
-
-  res.sendFile(path.join(__dirname, '../../public/index.html'));
-
+    res.sendFile(path.join(__dirname, '../../public/index.html'));
 });
 
 router.get('/notes', (req, res) => {
-
-  res.sendFile(path.join(__dirname, '../../public/notes.html'));
-
+    res.sendFile(path.join(__dirname, '../../public/notes.html'));
 });
-
 
 router.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../public/index.html'));
+})
 
-  res.sendFile(path.join(__dirname, '../../public/index.html'));
-
-});
+module.exports = router;
 
 //router.get('/notes',) (req,res) => {
 //     res,sendFile(path.join(__dirname, ../));
 
 // }
 
-module.exports = router;
