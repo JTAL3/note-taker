@@ -1,24 +1,24 @@
 
 const router = require('express').Router();
-const { createNote, findById } = require('../../lib/createNotes');
+const { createNote, findById, validateNote } = require('../../lib/createNotes');
 const { notes } = require('../../db/db.json');
 
 
 router.get('/notes', (req, res) => {
     
-    let results = notes;
-    res.json(results);
+    let result = notes;
+    res.json(result);
 
 });
 
-router.get('/notes/:id', (req, res) => {
-    const result = findById(req.params.id, notes);
-    if (result) {
-      res.json(result);
-    } else {
-      res.send(404);
-    }
-  });
+// router.get('/notes/:id', (req, res) => {
+//     const result = findById(req.params.id, notes);
+//     if (result) {
+//       res.json(result);
+//     } else {
+//       res.send(404);
+//     }
+//   });
 
 
 router.post('/notes', (req, res) => {
@@ -30,19 +30,19 @@ router.post('/notes', (req, res) => {
     
     else {
         const newNote = createNote(req.body, notes);
-        res.json(newNote);
+        res.json(req.body);
     }
 });
 
 //trying to get the extra credit assignment of creating a delete option
-// router.delete ('/notes/:id', (req, res) => {
-//     const result = findById(req.params.id, notes);
-//     if (!result) {
-//         res.status(404);
-//     } else {
-//         console.log(req.params.id);
-//         res.json(req.params.id);
-//     }
-// });
+router.delete ('/notes/:id', (req, res) => {
+    const result = findById(req.params.id, notes);
+    if (!result) {
+        res.status(404);
+    } else {
+        console.log(req.params.id);
+        res.json(req.params.id);
+    }
+});
 
 module.exports = router;
