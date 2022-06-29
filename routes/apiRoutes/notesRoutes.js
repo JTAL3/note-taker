@@ -1,6 +1,6 @@
 
 const router = require('express').Router();
-const { createNote, findById, validateNote } = require('../../lib/createNotes');
+const { createNote, findId, validateNote } = require('../../lib/createNotes');
 const { notes } = require('../../db/db.json');
 
 
@@ -12,7 +12,7 @@ router.get('/notes', (req, res) => {
 });
 
 // router.get('/notes/:id', (req, res) => {
-//     const result = findById(req.params.id, notes);
+//     const result = findId(req.params.id, notes);
 //     if (result) {
 //       res.json(result);
 //     } else {
@@ -35,14 +35,14 @@ router.post('/notes', (req, res) => {
 });
 
 //trying to get the extra credit assignment of creating a delete option
-router.delete ('/notes/:id', (req, res) => {
-    const result = findById(req.params.id, notes);
-    if (!result) {
-        res.status(404);
-    } else {
-        console.log(req.params.id);
-        res.json(req.params.id);
-    }
-});
+// router.delete ('/notes/:id', (req, res) => {
+//     const result = findId(req.params.id, notes);
+//     if (!result) {
+//         res.status(404);
+//     } else {
+//         console.log(req.params.id);
+//         res.json(req.params.id);
+//     }
+// });
 
 module.exports = router;
